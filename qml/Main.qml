@@ -8,11 +8,6 @@ import "../qml/scenes"
 GameWindow {
     id: gameWindow
 
-    onPortraitChanged: {
-         if(portrait)
-           console.log("orientation changed to landscape")
-       }
-
     MainMenuScene{
         id: mainMenuScene
 
@@ -22,6 +17,7 @@ GameWindow {
            onLearnWordsPressed: gameWindow.state = "learnWords"
            onLetterForPicturePressed: gameWindow.state = "letterForPicture"
 
+/////////////////////Exit on pressing back button
            onBackButtonPressed: {
                 nativeUtils.displayMessageBox("Really quit the game?", "", 2);
               }
@@ -60,7 +56,7 @@ GameWindow {
         id: entityManager
     }
 
-    // default state is mainmenu -> default scene is menuScene
+    // default state is mainmenu -> default scene is MainmenuScene
        state: "mainMenu"
 
        // state machine, takes care reversing the PropertyChanges when changing the state like changing the opacity back to 0

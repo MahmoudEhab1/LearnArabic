@@ -16,6 +16,7 @@ SceneBase {
 
     signal letterForPicturePressed
 
+
 ////////////////////////Background
     Image {
         id: background

@@ -1,13 +1,15 @@
 import QtQuick 2.0
 import Felgo 3.0
+import "../scenes"
 
 // EMPTY SCENE
 
-Scene {
+PaintingScene {
+    id:alif
 
     Text {
         text: "Felgo"
-        color: "blue"
+        color: "black"
 
         anchors.centerIn: parent
     }
