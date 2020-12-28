@@ -61,10 +61,14 @@ macx {
 
 DISTFILES += \
     qml/MainMenuScene.qml \
+    qml/common/LevelBase.qml \
     qml/common/MenuButton.qml \
     qml/common/SceneBase.qml \
     qml/letters/Alf_1.qml \
+    qml/levels/Level1.qml \
+    qml/levels/Level2.qml \
+    qml/scenes/GameScene.qml \
     qml/scenes/LearnWordsScene.qml \
-    qml/scenes/LetterForPictureScene.qml \
     qml/scenes/LetterSongsScene.qml \
-    qml/scenes/PaintingScene.qml
+    qml/scenes/PaintingScene.qml \
+    qml/scenes/PlayGames.qml

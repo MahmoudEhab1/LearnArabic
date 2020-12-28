@@ -14,8 +14,7 @@ SceneBase {
 
     signal learnWordsPressed
 
-    signal letterForPicturePressed
-
+    signal playGamesPressed
 
 ////////////////////////Background
     Image {
@@ -33,10 +32,12 @@ SceneBase {
 ///////////////sun
     Image {
         id: sun
+        anchors.top: parent.top
+        anchors.right: parent.right
         width: 100
         height: 100
         source: "../assets/sun.png"
-        x: 400
+
     }
     NumberAnimation {
             running: true             // Start automatically
@@ -71,9 +72,9 @@ SceneBase {
     Rectangle{
         id: rectangle
         width: 100
-        height: 100
+        height: 120
         color: "transparent"
-        x: 400
+        x: 360
         y: 170
 
         MouseArea {
@@ -84,19 +85,27 @@ SceneBase {
 
            }
 
+        Rectangle{
+
+            color: "transparent"
+            width: 100
+            height: 100
+
         Image {
             id: painting
             anchors.fill: parent
             source: "../assets/painting.png"
         }
+        }
 
         Text{
             id:paintingT
-            x: 0
-            y: 106
+            anchors.bottom: parent.bottom
+            y: 50
             text: "Write & Paint"
             font.bold: true
             font.italic: true
+            font.pixelSize: 15
         }
 
         SequentialAnimation {
@@ -129,9 +138,9 @@ SceneBase {
     Rectangle{
         id: rectangle2
         width: 100
-        height: 100
+        height: 120
         color: "transparent"
-        x: 270
+        x: 240
         y: 140
 
         MouseArea {
@@ -141,11 +150,16 @@ SceneBase {
              onClicked: letterSongsPressed()
 
            }
+        Rectangle{
 
+            color: "transparent"
+            width: 100
+            height: 100
         Image {
             id: singing
             anchors.fill: parent
             source: "../assets/sing.png"
+        }
         }
 
         Text{
@@ -155,6 +169,7 @@ SceneBase {
             text: "Letters songs"
             font.bold: true
             font.italic: true
+            font.pixelSize: 15
         }
 
         SequentialAnimation {
@@ -187,9 +202,9 @@ SceneBase {
     Rectangle{
         id: rectangle3
         width: 100
-        height: 100
+        height: 120
         color: "transparent"
-        x: 150
+        x: 115
         y: 180
 
         MouseArea {
@@ -199,11 +214,16 @@ SceneBase {
              onClicked: learnWordsPressed()
 
            }
+        Rectangle{
 
+            color: "transparent"
+            width: 100
+            height: 100
         Image {
             id: learnWords
             anchors.fill: parent
             source: "../assets/learnWords.png"
+        }
         }
 
         Text{
@@ -213,6 +233,7 @@ SceneBase {
             text: "Learn Words"
             font.bold: true
             font.italic: true
+            font.pixelSize: 15
         }
 
         SequentialAnimation {
@@ -241,11 +262,11 @@ SceneBase {
 
                }
     }
-///////////////////////////////////////////letterforpicture
+///////////////////////////////////////////playGames
     Rectangle{
         id: rectangle4
         width: 100
-        height: 100
+        height: 120
         color: "transparent"
         x: 0
         y: 130
@@ -254,23 +275,29 @@ SceneBase {
              id: mouseArea4
              anchors.fill: parent
              hoverEnabled: true
-             onClicked: letterForPicturePressed()
+             onClicked: playGamesPressed()
 
            }
+        Rectangle{
 
+            color: "transparent"
+            width: 100
+            height: 100
         Image {
             id: letterForPicture
             anchors.fill: parent
             source: "../assets/letterForPicture.png"
+        }
         }
 
         Text{
             id:letterForPictureT
             x: 0
             y: 106
-            text: "Letter for picture"
+            text: "Play Games"
             font.bold: true
             font.italic: true
+            font.pixelSize: 15
         }
 
         SequentialAnimation {

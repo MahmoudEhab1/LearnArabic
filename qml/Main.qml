@@ -11,11 +11,12 @@ GameWindow {
     MainMenuScene{
         id: mainMenuScene
 
+
         // listen to the button signals of the scene and change the state according to it
            onPaintingPressed: gameWindow.state = "painting"
            onLetterSongsPressed: gameWindow.state = "letterSongs"
            onLearnWordsPressed: gameWindow.state = "learnWords"
-           onLetterForPicturePressed: gameWindow.state = "letterForPicture"
+           onPlayGamesPressed: gameWindow.state = "playGames"
 
 /////////////////////Exit on pressing back button
            onBackButtonPressed: {
@@ -47,9 +48,20 @@ GameWindow {
         onBackButtonPressed: gameWindow.state = "mainMenu"
     }
 
-    LetterForPictureScene{
-        id: letterForPictureScene
+    PlayGames{
+        id: playGames
+        onLevelPressed: {
+             // selectedLevel is the parameter of the levelPressed signal
+             gameScene.setLevel(selectedLevel)
+             gameWindow.state = "game"
+
+           }
         onBackButtonPressed: gameWindow.state = "mainMenu"
+    }
+    GameScene {
+        id: gameScene
+        onBackButtonPressed: gameWindow.state = "playGames"
+
     }
 
     EntityManager{
@@ -82,10 +94,15 @@ GameWindow {
            PropertyChanges {target: gameWindow; activeScene: learnWordsScene}
          },
            State {
-             name: "letterForPicture"
-             PropertyChanges {target: letterForPictureScene; opacity: 1}
-             PropertyChanges {target: gameWindow; activeScene: letterForPictureScene}
-           }
+             name: "playGames"
+             PropertyChanges {target: playGames; opacity: 1}
+             PropertyChanges {target: gameWindow; activeScene: playGames}
+           },
+           State {
+                  name: "game"
+                  PropertyChanges {target: gameScene; opacity: 1}
+                  PropertyChanges {target: gameWindow; activeScene: gameScene}
+                }
 
        ]
 
