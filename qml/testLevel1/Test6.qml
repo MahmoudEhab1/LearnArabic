@@ -1,10 +1,12 @@
 import QtQuick 2.0
 import Felgo 3.0
+import "../levels"
 import "../common"
 
-Levelbase {
-    levelName: "Level2"
-    id: level2
+
+
+Scene {
+    id: test6
 
     Text {
         id: title
@@ -18,7 +20,7 @@ Levelbase {
         id: lion
         anchors.horizontalCenter: parent.horizontalCenter
         y:130
-        source: "../scenes/assets/lion.png"
+        source: "../scenes/assets/elephant.png"
         width: 100
         height: 100
     }
@@ -200,9 +202,9 @@ Levelbase {
         x:0
         y:270
         onClicked: {
-        var component =Qt.createComponent("../testLevel1/Test5.qml");
+        var component =Qt.createComponent("../testLevel1/Test7.qml");
             var window = component.createObject(gameWindow);
-            level2.visible=false
+            test6.visible=false
             window.show
         }
         Image {
@@ -214,5 +216,14 @@ Levelbase {
 
     }
 
-}
 
+//                        MenuButton {
+//                          text: "Back"
+//                          anchors.right: playGames.gameWindowAnchorItem.right
+//                          anchors.rightMargin: 25
+//                          anchors.top: playGames.gameWindowAnchorItem.top
+//                          anchors.topMargin: 15
+//                          onClicked: backButtonPressed()
+//                        }
+
+}

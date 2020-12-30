@@ -50,18 +50,9 @@ SceneBase {
            onClicked: {
              levelPressed("Level2.qml")
            }
-         }
-         MenuButton {
-           text: "3"
-           color: "yellow"
-           width: 50
-           height: 50
-           onClicked: {
-             levelPressed("Level3.qml")
-           }
-         }
+         }         
          Repeater {
-           model: 12
+           model: 13
            MenuButton {
              text: " "
              color: "red"
@@ -71,13 +62,5 @@ SceneBase {
          }
        }
     ///////////////////
-    // back button to leave scene
-    MenuButton {
-      text: "Back"
-      anchors.right: playGames.gameWindowAnchorItem.right
-      anchors.rightMargin: 25
-      anchors.top: playGames.gameWindowAnchorItem.top
-      anchors.topMargin: 15
-      onClicked: backButtonPressed()
-    }
+
 }

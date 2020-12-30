@@ -1,11 +1,11 @@
 import QtQuick 2.0
 import Felgo 3.0
+import QtQuick 2.9
 import "../common"
 
 SceneBase {
     id:paintingScene
-
-
+    anchors.fill: parent.gameWindowAnchorItem
 
     Image {
         id: background
@@ -27,37 +27,69 @@ SceneBase {
         }
         }
     }
-////////////////////right and left arrows
-        Rectangle{
-            id:rightArrow
-            width: 60
-            height: 30
-            color: "transparent"
-            x:422
-            y:270
 
-            Image {
-                id: rightArrow1
-                anchors.fill: parent
-                source: "../scenes/assets/rightArrow.png"
-            }
+
+/////////////////////////Painting
+
+    LineItem {
+      color: "transparent"
+      lineWidth: 5
+      points: [
+        {"x":0, "y":0},
+        {"x":mousePos.x, "y":mousePos.y}
+      ]
+    }
+
+    LineItem {
+      color: "transparent"
+      points: [
+        {"x":scene.width, "y":scene.height},
+        {"x":mousePos.x+20, "y":mousePos.y+20}
+      ]
+    }
+
+    Rectangle {
+      id: mousePos
+      color: "transparent"
+      width: 30
+      height: 30
+      Image {
+          id: brush
+          anchors.fill: parent
+          source: "../scenes/assets/brush.png"
+      }
+    }
+
+    MouseArea{
+      anchors.fill: parent
+      onPositionChanged: {
+        mousePos.x = mouseX
+        mousePos.y = mouseY
+
+      }
+    }
+
+    MenuButton{
+        id:leftArrow
+        width: 60
+        height: 30
+        color: "transparent"
+        x:0
+        y:270
+        onClicked: {
+        var component =Qt.createComponent("../letters/1.qml");
+            var window = component.createObject(gameWindow);
+            paintingScene.visible=false
+            window.show
+        }
+        Image {
+            id: leftArrow1
+            anchors.fill: parent
+            source: "../scenes/assets/leftArrow.png"
+
         }
 
-        Rectangle{
-            id:leftArrow
-            width: 60
-            height: 30
-            color: "transparent"
-            x:0
-            y:270
-            Image {
-                id: leftArrow1
-                anchors.fill: parent
-                source: "../scenes/assets/leftArrow.png"
-            }
-        }
-
-///////////////////
+    }
 
 
 

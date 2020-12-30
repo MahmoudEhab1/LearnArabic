@@ -8,6 +8,8 @@ SceneBase {
    property string activeLevelFileName
    // the currently loaded level gets stored here
    property variant activeLevel
+   // score
+      property int score: 0
 
    // set the name of the current level, this will cause the Loader to load the corresponding level
    function setLevel(fileName) {
@@ -56,14 +58,38 @@ SceneBase {
 
    // load levels at runtime
    Loader {
-     id: loader
-     source: activeLevelFileName !== "" ? "../levels/" + activeLevelFileName : ""
-     onLoaded: {
-       // since we did not define a width and height in the level item itself, we are doing it here
-       item.width = gameScene.width
-       item.height = gameScene.height
-       // store the loaded level as activeLevel for easier access
-       activeLevel = item
-     }
-   }
+        id: loader
+        source: activeLevelFileName !== "" ? "../levels/" + activeLevelFileName : ""
+        onLoaded: {
+          // reset the score
+          score = 0
+          // since we did not define a width and height in the level item itself, we are doing it here
+          item.width = gameScene.width
+          item.height = gameScene.height
+          // store the loaded level as activeLevel for easier access
+          activeLevel = item
+        }
+      }
+
+      // we connect the gameScene to the loaded level
+      Connections {
+        // only connect if a level is loaded, to prevent errors
+        target: activeLevel !== undefined ? activeLevel : null
+        // increase the score when the rectangle is clicked
+        onRectanglePressed: {
+          score=score+10
+        }
+      }
+
+      // display the current score
+      Text {
+        anchors.left: anchors.left
+        anchors.top: gameScene.gameWindowAnchorItem.top
+        anchors.topMargin: 30
+        color: "red"
+        font.pixelSize: 40
+        text: score
+      }
+
+
  }

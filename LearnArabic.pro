@@ -61,9 +61,15 @@ macx {
 
 DISTFILES += \
     qml/MainMenuScene.qml \
+    qml/TestLevel1/Test1.qml \
+    qml/TestLevel1/Test2.qml \
+    qml/TestLevel1/Test3.qml \
+    qml/TestLevel1/Test4.qml \
     qml/common/LevelBase.qml \
     qml/common/MenuButton.qml \
+    qml/common/RightAnswer.qml \
     qml/common/SceneBase.qml \
+    qml/common/WrongAnswer.qml \
     qml/letters/Alf_1.qml \
     qml/levels/Level1.qml \
     qml/levels/Level2.qml \
@@ -71,4 +77,9 @@ DISTFILES += \
     qml/scenes/LearnWordsScene.qml \
     qml/scenes/LetterSongsScene.qml \
     qml/scenes/PaintingScene.qml \
-    qml/scenes/PlayGames.qml
+    qml/scenes/PlayGames.qml \
+    qml/words/Word1.qml \
+    qml/words/Word2.qml \
+    qml/words/Word3.qml
+
+HEADERS +=

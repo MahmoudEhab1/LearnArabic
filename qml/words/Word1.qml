@@ -2,8 +2,8 @@ import QtQuick 2.0
 import Felgo 3.0
 import "../common"
 
-SceneBase {
-    id: learnWordsScene
+Scene {
+    id:word1
 
     Image {
         id: background
@@ -25,40 +25,40 @@ SceneBase {
         }
         }
     }
-////////////////////////////////////
-    Text {
-        id: name
-        x: 300
-        y: 130
-        text: qsTr("ديناصور")
-        font.pixelSize: 40
-    }
-////////////////////////////////////
-    MenuButton {
-        x:70
-        y:100
-      width: 200
-      height: 150
-      color: "transparent"
+    ////////////////////////////////////
+        Text {
+            id: name
+            x: 300
+            y: 130
+            text: qsTr("غوريلا")
+            font.pixelSize: 40
+        }
+    ////////////////////////////////////
+        MenuButton {
+            x:70
+            y:100
+          width: 200
+          height: 150
+          color: "transparent"
 
-      Image {
+          Image {
 
+              anchors.fill: parent
+              source: "../scenes/assets/gorilla.png"
+          }
+          SoundEffect{
+          id: sheen
+          source: "../scenes/assets/wordSound/Gorilla.wav"
+          }
+          MouseArea{
           anchors.fill: parent
-          source: "../scenes/assets/dinasour.png"
-      }
-      SoundEffect{
-      id: sheen
-      source: "../scenes/assets/wordSound/dinosaur.wav"
-      }
-      MouseArea{
-      anchors.fill: parent
-      onClicked: {
-      sheen.play()
-      }
-      }
-    }
+          onClicked: {
+          sheen.play()
+          }
+          }
+        }
 
-////////////////////////////////////
+    ////////////////////////////////////
     MenuButton{
         id:leftArrow
         width: 60
@@ -67,9 +67,9 @@ SceneBase {
         x:0
         y:270
         onClicked: {
-        var component =Qt.createComponent("../words/Word1.qml");
+        var component =Qt.createComponent("../words/Word2.qml");
             var window = component.createObject(gameWindow);
-            learnWordsScene.visible=false
+            word1.visible=false
             window.show
         }
         Image {
@@ -80,9 +80,6 @@ SceneBase {
         }
 
     }
-
-    ///////////////////
-    // back button to leave scene
     MenuButton {
       text: "Back"
       anchors.right: learnWordsScene.gameWindowAnchorItem.right
@@ -91,5 +88,4 @@ SceneBase {
       anchors.topMargin: 15
       onClicked: backButtonPressed()
     }
-
 }

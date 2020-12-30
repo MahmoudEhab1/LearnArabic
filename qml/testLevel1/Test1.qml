@@ -3,15 +3,14 @@ import Felgo 3.0
 import "../common"
 
 
+Scene {
+    id:test1
 
-Levelbase {
-    levelName: "Level1"
-    id:level1
 
     Text {
         id: title
         anchors.horizontalCenter: parent.horizontalCenter
-        y:20
+        y:15
         font.pixelSize: 20
         text: qsTr("اختر الحرف المناسب للصورة")
     }
@@ -30,26 +29,26 @@ Levelbase {
 
            AnimatedImage {
                anchors.fill: parent
-               source: "../scenes/assets/LettersInGIF/خ.gif"
-}
-         }
-         WrongAnswer {
-           width: 50
-           height: 50
-           color: "transparent"
-
-           AnimatedImage {
-               anchors.fill: parent
-               source: "../scenes/assets/LettersInGIF/د.gif"
+               source: "../scenes/assets/LettersInGIF/ش.gif"
 }
          }
          RightAnswer {
            width: 50
            height: 50
            color: "transparent"
+
+           AnimatedImage {
+               anchors.fill: parent
+               source: "../scenes/assets/LettersInGIF/ك.gif"
+}
+         }
+         WrongAnswer {
+           width: 50
+           height: 50
+           color: "transparent"
                       AnimatedImage {
                anchors.fill: parent
-               source: "../scenes/assets/LettersInGIF/ض.gif"
+               source: "../scenes/assets/LettersInGIF/ن.gif"
 }
          }
          WrongAnswer {
@@ -59,7 +58,7 @@ Levelbase {
 
            AnimatedImage {
                anchors.fill: parent
-               source: "../scenes/assets/LettersInGIF/ط.gif"
+               source: "../scenes/assets/LettersInGIF/ث.gif"
 }
          }
 /////////////////////////PictureHere
@@ -73,7 +72,7 @@ Levelbase {
 
            Image {
                anchors.fill: parent
-               source: "../scenes/assets/frog.png"
+               source: "../scenes/assets/dog.png"
 }}
 ////////////////////////////////////////////////////////////////
          WrongAnswer {
@@ -83,7 +82,7 @@ Levelbase {
 
            AnimatedImage {
                anchors.fill: parent
-               source: "../scenes/assets/LettersInGIF/و.gif"
+               source: "../scenes/assets/LettersInGIF/ص.gif"
 }
          }
          WrongAnswer {
@@ -127,9 +126,10 @@ Levelbase {
         x:0
         y:270
         onClicked: {
-        var component =Qt.createComponent("../testLevel1/Test1.qml");
+        var component =Qt.createComponent("../testLevel1/Test2.qml");
             var window = component.createObject(gameWindow);
-            level1.visible=false
+            test1.visible=false
+            window.show
         }
         Image {
             id: leftArrow1
@@ -146,8 +146,9 @@ Levelbase {
 //      anchors.rightMargin: 25
 //      anchors.top: playGames.gameWindowAnchorItem.top
 //      anchors.topMargin: 15
-//      onClicked: backButtonPressed()
+//      onClicked: {
+//          backButtonPressed()
+//      }
 //    }
-
 
 }

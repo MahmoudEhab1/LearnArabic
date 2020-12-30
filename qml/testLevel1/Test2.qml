@@ -2,11 +2,8 @@ import QtQuick 2.0
 import Felgo 3.0
 import "../common"
 
-
-
-Levelbase {
-    levelName: "Level1"
-    id:level1
+Scene {
+    id:test2
 
     Text {
         id: title
@@ -43,7 +40,7 @@ Levelbase {
                source: "../scenes/assets/LettersInGIF/د.gif"
 }
          }
-         RightAnswer {
+         WrongAnswer {
            width: 50
            height: 50
            color: "transparent"
@@ -73,7 +70,7 @@ Levelbase {
 
            Image {
                anchors.fill: parent
-               source: "../scenes/assets/frog.png"
+               source: "../scenes/assets/elephant.png"
 }}
 ////////////////////////////////////////////////////////////////
          WrongAnswer {
@@ -96,14 +93,14 @@ Levelbase {
                source: "../scenes/assets/LettersInGIF/ش.gif"
 }
          }
-         WrongAnswer {
+         RightAnswer {
            width: 50
            height: 50
            color: "transparent"
 
            AnimatedImage {
                anchors.fill: parent
-               source: "../scenes/assets/LettersInGIF/ا.gif"
+               source: "../scenes/assets/LettersInGIF/ف.gif"
 }
          }
          WrongAnswer {
@@ -127,9 +124,10 @@ Levelbase {
         x:0
         y:270
         onClicked: {
-        var component =Qt.createComponent("../testLevel1/Test1.qml");
+        var component =Qt.createComponent("../testLevel1/Test3.qml");
             var window = component.createObject(gameWindow);
-            level1.visible=false
+            test2.visible=false
+            window.show
         }
         Image {
             id: leftArrow1
@@ -146,8 +144,9 @@ Levelbase {
 //      anchors.rightMargin: 25
 //      anchors.top: playGames.gameWindowAnchorItem.top
 //      anchors.topMargin: 15
-//      onClicked: backButtonPressed()
+//      onClicked: {
+//          backButtonPressed()
+//      }
 //    }
-
 
 }
