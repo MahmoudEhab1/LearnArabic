@@ -22,13 +22,15 @@ Levelbase {
         width: 100
         height: 100
     }
-    MenuButton {
+    WrongAnswer {
       x:30
       y:100
       width: 50
       height: 50
       color: "transparent"
-
+      onClicked: {
+      khaa.play()
+      }
       AnimatedImage {
           anchors.fill: parent
           source: "../scenes/assets/LettersInGIF/خ.gif"
@@ -37,20 +39,17 @@ Levelbase {
       id: khaa
       source: "../scenes/assets/LetterSound/7.wav"
       }
-      MouseArea{
-      id: letter1
-      anchors.fill: parent
-      onClicked: {
-      khaa.play()
-      }
-      }
+
 }
-    MenuButton {
+    RightAnswer {
         x:100
         y:120
       width: 50
       height: 50
       color: "transparent"
+      onClicked: {
+      alf.play()
+      }
 
       AnimatedImage {
 
@@ -61,20 +60,17 @@ Levelbase {
       id: alf
       source: "../scenes/assets/LetterSound/1.wav"
       }
-      MouseArea{
-      id: letter7
-      anchors.fill: parent
-      onClicked: {
-      alf.play()
-      }
-      }
+
     }
-    MenuButton {
+    RightAnswer {
         x:300
         y:130
       width: 50
       height: 50
       color: "transparent"
+      onClicked: {
+      dal.play()
+      }
 
       AnimatedImage {
 
@@ -85,20 +81,17 @@ Levelbase {
       id: dal
       source: "../scenes/assets/LetterSound/8.wav"
       }
-      MouseArea{
-      id: letter14
-      anchors.fill: parent
-      onClicked: {
-      dal.play()
-      }
-      }
+
     }
-    MenuButton {
+    WrongAnswer {
         x:400
         y:140
       width: 50
       height: 50
       color: "transparent"
+      onClicked: {
+      sheen.play()
+      }
 
       AnimatedImage {
 
@@ -108,21 +101,19 @@ Levelbase {
       SoundEffect{
       id: sheen
       source: "../scenes/assets/LetterSound/13.wav"
+
       }
-      MouseArea{
-      id: letter9
-      anchors.fill: parent
-      onClicked: {
-      sheen.play()
-      }
-      }
+
     }
-    MenuButton {
+    WrongAnswer {
         x:50
         y:150
       width: 50
       height: 50
       color: "transparent"
+      onClicked: {
+      kaf.play()
+      }
 
       AnimatedImage {
 
@@ -133,20 +124,16 @@ Levelbase {
       id: kaf
       source: "../scenes/assets/LetterSound/22.wav"
       }
-      MouseArea{
-      id: letter28
-      anchors.fill: parent
-      onClicked: {
-      kaf.play()
-      }
-      }
     }
-    MenuButton {
+    RightAnswer {
         x:350
         y:70
       width: 50
       height: 50
       color: "transparent"
+      onClicked: {
+      seen.play()
+      }
 
       AnimatedImage {
 
@@ -157,20 +144,17 @@ Levelbase {
       id:seen
       source: "../scenes/assets/LetterSound/12.wav"
       }
-      MouseArea{
-      id: letter10
-      anchors.fill: parent
-      onClicked: {
-      seen.play()
-      }
-      }
+
     }
-    MenuButton {
+    WrongAnswer {
         x:400
         y:70
       width: 50
       height: 50
       color: "transparent"
+      onClicked: {
+      non.play()
+      }
 
       AnimatedImage {
 
@@ -181,13 +165,7 @@ Levelbase {
       id: non
       source: "../scenes/assets/LetterSound/25.wav"
       }
-      MouseArea{
-      id: letter25
-      anchors.fill: parent
-      onClicked: {
-      non.play()
-      }
-      }
+
     }
 
 ////////////////////////////
@@ -212,6 +190,17 @@ Levelbase {
 
         }
 
+    }
+    // back button to leave scene
+    MenuButton {
+      text: "Back"
+      anchors.right: level2.right
+      anchors.rightMargin: 25
+      anchors.top: level2.top
+      anchors.topMargin: 15
+      onClicked: {
+          level2.visible=false
+          gameWindow.state= "playGames"}
     }
 
 }

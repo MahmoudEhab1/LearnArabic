@@ -26,6 +26,13 @@ Scene {
         }
         }
     }
+    Text {
+        id: title
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: qsTr("اضغط على الصورة")
+        color: "red"
+        font.pixelSize: 20
+    }
     ////////////////////////////////////
         Text {
             id: name
@@ -83,11 +90,13 @@ Scene {
     }
     MenuButton {
       text: "Back"
-      anchors.right: learnWordsScene.gameWindowAnchorItem.right
+      anchors.right: word2.gameWindowAnchorItem.right
       anchors.rightMargin: 25
-      anchors.top: learnWordsScene.gameWindowAnchorItem.top
+      anchors.top: word2.gameWindowAnchorItem.top
       anchors.topMargin: 15
-      onClicked: backButtonPressed()
+      onClicked: {
+          backButtonPressed()
+      }
     }
 
 }

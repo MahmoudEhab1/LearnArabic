@@ -116,37 +116,35 @@ Scene {
 
     }
 
-    MenuButton{
-        id:leftArrow
-        width: 60
-        height: 30
-        color: "transparent"
-        x:0
-        y:270
-        onClicked: {
-            backButtonPressed()
-            test4.visible=false
-        }
-        Image {
-            id: leftArrow1
-            anchors.fill: parent
-            source: "../scenes/assets/leftArrow.png"
+//    MenuButton{
+//        id:leftArrow
+//        width: 60
+//        height: 30
+//        color: "transparent"
+//        x:0
+//        y:270
+//        onClicked: {
+//            test4.visible=false
+//        }
+//        Image {
+//            id: leftArrow1
+//            anchors.fill: parent
+//            source: "../scenes/assets/leftArrow.png"
 
-        }
+//        }
 
-    }
-
-    // back button to leave scene
-//    MenuButton {
-//      text: "Back"
-//      anchors.right: playGames.gameWindowAnchorItem.right
-//      anchors.rightMargin: 25
-//      anchors.top: playGames.gameWindowAnchorItem.top
-//      anchors.topMargin: 15
-//      onClicked: {
-//          backButtonPressed()
-//      }
 //    }
 
+    // back button to leave scene
+    MenuButton {
+      text: "Back"
+      anchors.right: test4.gameWindowAnchorItem.right
+      anchors.rightMargin: 25
+      anchors.top: test4.gameWindowAnchorItem.top
+      anchors.topMargin: 15
+      onClicked: {
+          test4.visible=false
+          gameWindow.state= "playGames"}
+    }
 
 }

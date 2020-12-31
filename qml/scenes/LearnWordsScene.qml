@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Felgo 3.0
+import QtMultimedia 5.12
 import "../common"
 
 SceneBase {
@@ -24,6 +25,13 @@ SceneBase {
         height: 300
         }
         }
+    }
+    Text {
+        id: title
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: qsTr("اضغط على الصورة")
+        color: "red"
+        font.pixelSize: 20
     }
 ////////////////////////////////////
     Text {
@@ -89,7 +97,9 @@ SceneBase {
       anchors.rightMargin: 25
       anchors.top: learnWordsScene.gameWindowAnchorItem.top
       anchors.topMargin: 15
-      onClicked: backButtonPressed()
+      onClicked: {
+          backButtonPressed()
+      }
     }
 
 }

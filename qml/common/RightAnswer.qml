@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Felgo 3.0
+import QtMultimedia 5.12
 
 Rectangle {
   id: button
@@ -33,7 +34,10 @@ Rectangle {
     id: mouseArea
     anchors.fill: parent
     hoverEnabled: true
-    onClicked: rectanglePressed()
+    onClicked:{
+        button.clicked()
+        rectanglePressed()
+    }
     onPressed: button.color = "green"
 
   }

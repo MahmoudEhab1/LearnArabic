@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Felgo 3.0
 import QtQuick 2.9
+import QtQuick 2.13
 import "../common"
 
 SceneBase {
@@ -31,44 +32,25 @@ SceneBase {
 
 /////////////////////////Painting
 
-    LineItem {
-      color: "transparent"
-      lineWidth: 5
-      points: [
-        {"x":0, "y":0},
-        {"x":mousePos.x, "y":mousePos.y}
-      ]
-    }
+    Item {
+            id: glassPane
+            anchors.fill: parent
 
-    LineItem {
-      color: "transparent"
-      points: [
-        {"x":scene.width, "y":scene.height},
-        {"x":mousePos.x+20, "y":mousePos.y+20}
-      ]
-    }
+            Rectangle {
+              parent: glassPane
+              color: "red"
+              x: handler.point.position.x - width / 2
+              y: handler.point.position.y - height / 2
+              width: dp(10)
+              height: width
+              radius: width / 2
+            }
 
-    Rectangle {
-      id: mousePos
-      color: "transparent"
-      width: 30
-      height: 30
-      Image {
-          id: brush
-          anchors.fill: parent
-          source: "../scenes/assets/brush.png"
-      }
-    }
-
-    MouseArea{
-      anchors.fill: parent
-      onPositionChanged: {
-        mousePos.x = mouseX
-        mousePos.y = mouseY
-
-      }
-    }
-
+            HoverHandler {
+              id: handler
+              enabled: true
+            }
+          }
     MenuButton{
         id:leftArrow
         width: 60

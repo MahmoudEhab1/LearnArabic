@@ -215,13 +215,16 @@ Scene {
 
     }
 
-//MenuButton {
-//   text: "Back"
-//   anchors.right: playGames.gameWindowAnchorItem.right
-//   anchors.rightMargin: 25
-//   anchors.top: playGames.gameWindowAnchorItem.top
-//   anchors.topMargin: 15
-//   onClicked: backButtonPressed()
-//      }
+    // back button to leave scene
+    MenuButton {
+      text: "Back"
+      anchors.right: test5.gameWindowAnchorItem.right
+      anchors.rightMargin: 25
+      anchors.top: test5.gameWindowAnchorItem.top
+      anchors.topMargin: 15
+      onClicked: {
+          test5.destroy()
+          gameWindow.state= "playGames"}
+    }
 
 }

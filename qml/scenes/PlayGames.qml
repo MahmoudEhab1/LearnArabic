@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Felgo 3.0
+import QtMultimedia 5.12
 import "../common"
 
 
@@ -61,6 +62,14 @@ SceneBase {
            }
          }
        }
-    ///////////////////
-
+    /////////////////
+    // back button to leave scene
+        MenuButton {
+          text: "Back"
+          anchors.right: playGames.gameWindowAnchorItem.right
+          anchors.rightMargin: 25
+          anchors.top: playGames.gameWindowAnchorItem.top
+          anchors.topMargin: 15
+          onClicked: backButtonPressed()
+        }
 }

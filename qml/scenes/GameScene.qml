@@ -41,20 +41,20 @@ SceneBase {
    }
    }
 
-   // back button to leave scene
-   MenuButton {
-     text: "Back"
-     // anchor the button to the gameWindowAnchorItem to be on the edge of the screen on any device
-     anchors.right: gameScene.gameWindowAnchorItem.right
-     anchors.rightMargin: 10
-     anchors.top: gameScene.gameWindowAnchorItem.top
-     anchors.topMargin: 10
-     onClicked: {
-       backButtonPressed()
-       activeLevel = undefined
-       activeLevelFileName = ""
-     }
-   }
+//   // back button to leave scene
+//   MenuButton {
+//     text: "Back"
+//     // anchor the button to the gameWindowAnchorItem to be on the edge of the screen on any device
+//     anchors.right: gameScene.gameWindowAnchorItem.right
+//     anchors.rightMargin: 10
+//     anchors.top: gameScene.gameWindowAnchorItem.top
+//     anchors.topMargin: 10
+//     onClicked: {
+//       backButtonPressed()
+//       activeLevel = undefined
+//       activeLevelFileName = ""
+//     }
+//   }
 
    // load levels at runtime
    Loader {

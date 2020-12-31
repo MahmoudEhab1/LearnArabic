@@ -2,10 +2,10 @@ import QtQuick 2.0
 import Felgo 3.0
 import QtMultimedia 5.12
 
-// EMPTY SCENE
 
 Scene {
     id: baseScene
+    anchors.fill: baseScene.gameWindowAnchorItem
 
     // by default, set the opacity to 0 - this will be changed from the main.qml with PropertyChanges
        opacity: 0

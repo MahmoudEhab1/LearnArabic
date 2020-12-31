@@ -8,6 +8,9 @@ import "../qml/scenes"
 GameWindow {
     id: gameWindow
 
+    screenWidth: 960
+    screenHeight: 640
+
     MainMenuScene{
         id: mainMenuScene
 
