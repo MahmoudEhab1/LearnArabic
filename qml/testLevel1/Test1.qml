@@ -141,7 +141,7 @@ Scene {
     }
     // back button to leave scene
     MenuButton {
-      text: "Back"
+      text: "رجوع"
       anchors.right: test1.gameWindowAnchorItem.right
       anchors.rightMargin: 25
       anchors.top: test1.gameWindowAnchorItem.top

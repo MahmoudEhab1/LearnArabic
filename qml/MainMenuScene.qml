@@ -16,7 +16,8 @@ SceneBase {
 
     signal playGamesPressed
 
-////////////////////////Background
+
+    ////////////////////////Background
     Image {
         id: background
         transformOrigin: Item.Center
@@ -25,50 +26,49 @@ SceneBase {
         fillMode: Image.PreserveAspectCrop
 
         Rectangle{      //transparent white30%
-        anchors.fill: parent
-        color: "#4DFFFFFF"
+            anchors.fill: parent
+            color: "#4DFFFFFF"
         }
     }
-///////////////sun
+    ///////////////sun
     Image {
         id: sun
         anchors.top: parent.top
-        anchors.right: parent.right
+        anchors.left: parent.left
         width: 100
         height: 100
         source: "../assets/sun.png"
 
     }
     NumberAnimation {
-            running: true             // Start automatically
-            loops: Animation.Infinite // Repeat endless (unless stopped)
-            target: sun             // The animated item id
-            property: "rotation"      // The animated property
-            from: 0                   // Start value. If not defined, the current value is used
-            to: 360                   // End value
-            duration: 3000            // Duration of the animation
+        running: true             // Start automatically
+        loops: Animation.Infinite // Repeat endless (unless stopped)
+        target: sun
+        property: "rotation"
+        from: 0                   // Start value. If not defined, the current value is used
+        to: 360                   // End value
+        duration: 3000
 
-          }
-////////////////////////////WelcomeLogo
+    }
+    ////////////////////////////WelcomeLogo
     Image {
         id: welcome
         width: 300
         height: 80
-        source: "../assets/welcome.png"
-        x: 10
+        source: "../assets/welcome2.png"
+        x: 180
         y: 10
     }
     NumberAnimation {
-            running: true             // Start automatically
-            //loops: Animation.alwaysRunToEnd // Repeat endless (unless stopped)
-            target: welcome             // The animated item id
-            property: "rotation"      // The animated property
-            from: 0                   // Start value. If not defined, the current value is used
-            to: 360                   // End value
-            duration: 500            // Duration of the animation
+        running: true
+        target: welcome
+        property: "rotation"
+        from: 0
+        to: 370
+        duration: 800
 
-          }
-/////////////////////////////////////Painting
+    }
+    /////////////////////////////////////Painting
     Rectangle{
         id: rectangle
         width: 100
@@ -78,12 +78,14 @@ SceneBase {
         y: 170
 
         MouseArea {
-             id: mouseArea
-             anchors.fill: parent
-             hoverEnabled: true
-             onClicked: paintingPressed()
-
-           }
+            id: mouseArea
+            anchors.fill: parent
+            hoverEnabled: true
+            onClicked: {
+                paintingPressed()
+                paintingScene.visible=true
+            }
+        }
 
         Rectangle{
 
@@ -91,18 +93,18 @@ SceneBase {
             width: 100
             height: 100
 
-        Image {
-            id: painting
-            anchors.fill: parent
-            source: "../assets/painting.png"
-        }
+            Image {
+                id: painting
+                anchors.fill: parent
+                source: "../assets/painting.png"
+            }
         }
 
         Text{
             id:paintingT
             anchors.bottom: parent.bottom
             y: 50
-            text: "Write & Paint"
+            text: "ارسم واكتب"
             font.bold: true
             font.italic: true
             font.pixelSize: 15
@@ -110,31 +112,30 @@ SceneBase {
 
         SequentialAnimation {
             SequentialAnimation {
-                    ScaleAnimator {
-                        target: rectangle
-                        from: 0.5
-                        to: 1
-                        easing.type: Easing.OutBounce;
-                        duration: 1500
+                ScaleAnimator {
+                    target: rectangle
+                    from: 0.5
+                    to: 1
+                    easing.type: Easing.OutBounce;
+                    duration: 1500
                 }
             }
             PauseAnimation { duration: 500 }
             running: true
-            //loops: Animation.alwaysRunToEnd
         }
         ColorAnimation {
-                 id: animation
-                 running: true
-                 target: paintingT         // The animated item id
-                 loops: Animation.Infinite
-                 property: "color"         // The animated property
-                 from: "black"
-                 to: "red"             // Beautiful blue color
-                 duration: 2000            // Duration of the animation
+            id: animation
+            running: true
+            target: paintingT
+            loops: Animation.Infinite
+            property: "color"
+            from: "black"
+            to: "red"
+            duration: 2000
 
-               }
+        }
     }
-/////////////////////////////////////singing
+    /////////////////////////////////////singing
     Rectangle{
         id: rectangle2
         width: 100
@@ -144,29 +145,29 @@ SceneBase {
         y: 140
 
         MouseArea {
-             id: mouseArea2
-             anchors.fill: parent
-             hoverEnabled: true
-             onClicked: letterSongsPressed()
+            id: mouseArea2
+            anchors.fill: parent
+            hoverEnabled: true
+            onClicked: letterSongsPressed()
 
-           }
+        }
         Rectangle{
 
             color: "transparent"
             width: 100
             height: 100
-        Image {
-            id: singing
-            anchors.fill: parent
-            source: "../assets/sing.png"
-        }
+            Image {
+                id: singing
+                anchors.fill: parent
+                source: "../assets/sing.png"
+            }
         }
 
         Text{
             id:singingT
             x: 0
             y: 106
-            text: "Letters songs"
+            text: "اغاني الحروف"
             font.bold: true
             font.italic: true
             font.pixelSize: 15
@@ -174,31 +175,30 @@ SceneBase {
 
         SequentialAnimation {
             SequentialAnimation {
-                    ScaleAnimator {
-                        target: rectangle2
-                        from: 0.5
-                        to: 1
-                        easing.type: Easing.OutBounce;
-                        duration: 1500
+                ScaleAnimator {
+                    target: rectangle2
+                    from: 0.5
+                    to: 1
+                    easing.type: Easing.OutBounce;
+                    duration: 1500
                 }
             }
             PauseAnimation { duration: 500 }
             running: true
-            //loops: Animation.alwaysRunToEnd
         }
         ColorAnimation {
-                 id: animation2
-                 running: true
-                 target: singingT         // The animated item id
-                 loops: Animation.Infinite
-                 property: "color"         // The animated property
-                 from: "black"
-                 to: "red"             // Beautiful blue color
-                 duration: 2000            // Duration of the animation
+            id: animation2
+            running: true
+            target: singingT
+            loops: Animation.Infinite
+            property: "color"
+            from: "black"
+            to: "red"
+            duration: 2000
 
-               }
+        }
     }
-/////////////////////////////learnwords
+    /////////////////////////////learnwords
     Rectangle{
         id: rectangle3
         width: 100
@@ -208,29 +208,30 @@ SceneBase {
         y: 180
 
         MouseArea {
-             id: mouseArea3
-             anchors.fill: parent
-             hoverEnabled: true
-             onClicked: learnWordsPressed()
+            id: mouseArea3
+            anchors.fill: parent
+            hoverEnabled: true
+            onClicked: {learnWordsPressed()
+                learnWordsScene.visible=true}
 
-           }
+        }
         Rectangle{
 
             color: "transparent"
             width: 100
             height: 100
-        Image {
-            id: learnWords
-            anchors.fill: parent
-            source: "../assets/learnWords.png"
-        }
+            Image {
+                id: learnWords
+                anchors.fill: parent
+                source: "../assets/learnWords.png"
+            }
         }
 
         Text{
             id:learnWordsT
             x: 0
             y: 106
-            text: "Learn Words"
+            text: "تعلم الكلمات"
             font.bold: true
             font.italic: true
             font.pixelSize: 15
@@ -238,31 +239,30 @@ SceneBase {
 
         SequentialAnimation {
             SequentialAnimation {
-                    ScaleAnimator {
-                        target: rectangle3
-                        from: 0.5
-                        to: 1
-                        easing.type: Easing.OutBounce;
-                        duration: 1500
+                ScaleAnimator {
+                    target: rectangle3
+                    from: 0.5
+                    to: 1
+                    easing.type: Easing.OutBounce;
+                    duration: 1500
                 }
             }
             PauseAnimation { duration: 500 }
             running: true
-            //loops: Animation.alwaysRunToEnd
+
         }
         ColorAnimation {
-                 id: animation3
-                 running: true
-                 target: learnWordsT         // The animated item id
-                 loops: Animation.Infinite
-                 property: "color"         // The animated property
-                 from: "black"
-                 to: "red"             // Beautiful blue color
-                 duration: 2000            // Duration of the animation
-
-               }
+            id: animation3
+            running: true
+            target: learnWordsT
+            loops: Animation.Infinite
+            property: "color"
+            from: "black"
+            to: "red"
+            duration: 2000
+        }
     }
-///////////////////////////////////////////playGames
+    ///////////////////////////////////////////playGames
     Rectangle{
         id: rectangle4
         width: 100
@@ -272,62 +272,80 @@ SceneBase {
         y: 130
 
         MouseArea {
-             id: mouseArea4
-             anchors.fill: parent
-             hoverEnabled: true
-             onClicked: playGamesPressed()
-
-           }
+            id: mouseArea4
+            anchors.fill: parent
+            hoverEnabled: true
+            onClicked: playGamesPressed()
+        }
         Rectangle{
-
             color: "transparent"
             width: 100
             height: 100
-        Image {
-            id: letterForPicture
-            anchors.fill: parent
-            source: "../assets/letterForPicture.png"
+            Image {
+                id: letterForPicture
+                anchors.fill: parent
+                source: "../assets/letterForPicture.png"
+            }
         }
-        }
-
         Text{
             id:letterForPictureT
             x: 0
             y: 106
-            text: "Play Games"
+            text: "هيا نلعب"
             font.bold: true
             font.italic: true
             font.pixelSize: 15
         }
-
         SequentialAnimation {
             SequentialAnimation {
-                    ScaleAnimator {
-                        target: rectangle4
-                        from: 0.5
-                        to: 1
-                        easing.type: Easing.OutBounce;
-                        duration: 1500
+                ScaleAnimator {
+                    target: rectangle4
+                    from: 0.5
+                    to: 1
+                    easing.type: Easing.OutBounce;
+                    duration: 1500
                 }
             }
             PauseAnimation { duration: 500 }
             running: true
-            //loops: Animation.alwaysRunToEnd
+
         }
         ColorAnimation {
-                 id: animation4
-                 running: true
-                 target: letterForPictureT         // The animated item id
-                 loops: Animation.Infinite
-                 property: "color"         // The animated property
-                 from: "black"
-                 to: "red"             // Beautiful blue color
-                 duration: 2000            // Duration of the animation
+            id: animation4
+            running: true
+            target: letterForPictureT
+            loops: Animation.Infinite
+            property: "color"
+            from: "black"
+            to: "red"
+            duration: 2000
 
-               }
+        }
     }
-//////////////////////////////////////
+    //////////////////////////////////////MuteBackgroundMusic
 
-
+    MenuButton{
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.bottomMargin: 23
+        anchors.leftMargin: 5
+        width: 20
+        height: 20
+        onClicked: settings.musicEnabled = !settings.musicEnabled
+        Image {
+            id: muteBackgroundMusic
+            anchors.fill: parent
+            source: "../assets/StopMusic.png"
+        }
+    }
+    Text{
+        text: "موسيقى الخلفية"
+        font.bold: true
+        font.pixelSize: 7
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 5
+        anchors.left: parent.left
+        anchors.leftMargin: 10
+    }
 
 }

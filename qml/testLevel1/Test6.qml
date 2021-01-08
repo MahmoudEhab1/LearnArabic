@@ -2,11 +2,16 @@ import QtQuick 2.0
 import Felgo 3.0
 import "../levels"
 import "../common"
-
+import QtMultimedia 5.12
 
 
 Scene {
     id: test6
+
+    Component.onCompleted: {
+        ans2.enabled=false
+        ans3.enabled=false
+    }
 
     Text {
         id: title
@@ -24,35 +29,37 @@ Scene {
         width: 100
         height: 100
     }
-    MenuButton {
+    RightAnswer {
+        id:ans1
       x:30
       y:100
       width: 50
       height: 50
       color: "transparent"
-
+      onClicked: {
+      faa.play()
+          ans2.enabled=true
+          ans1A.start()
+      }
       AnimatedImage {
           anchors.fill: parent
-          source: "../scenes/assets/LettersInGIF/خ.gif"
+          source: "../scenes/assets/LettersInGIF/ف.gif"
       }
       SoundEffect{
-      id: khaa
-      source: "../scenes/assets/LetterSound/7.wav"
+      id: faa
+      source: "../scenes/assets/LetterSound/20.wav"
       }
-      MouseArea{
-      id: letter1
-      anchors.fill: parent
-      onClicked: {
-      khaa.play()
-      }
-      }
+
 }
-    MenuButton {
+    WrongAnswer {
         x:100
         y:120
       width: 50
       height: 50
       color: "transparent"
+      onClicked: {
+      alf.play()
+      }
 
       AnimatedImage {
 
@@ -63,20 +70,19 @@ Scene {
       id: alf
       source: "../scenes/assets/LetterSound/1.wav"
       }
-      MouseArea{
-      id: letter7
-      anchors.fill: parent
-      onClicked: {
-      alf.play()
-      }
-      }
+
     }
-    MenuButton {
+    WrongAnswer {
         x:300
         y:130
       width: 50
       height: 50
       color: "transparent"
+
+      onClicked: {
+      dal.play()
+
+      }
 
       AnimatedImage {
 
@@ -87,44 +93,42 @@ Scene {
       id: dal
       source: "../scenes/assets/LetterSound/8.wav"
       }
-      MouseArea{
-      id: letter14
-      anchors.fill: parent
-      onClicked: {
-      dal.play()
-      }
-      }
+
     }
-    MenuButton {
+    RightAnswer {
+        id: ans2
         x:400
         y:140
       width: 50
       height: 50
       color: "transparent"
+      onClicked: {
+      yaa.play()
+          ans3.enabled=true
+          ans2A.start()
+      }
 
       AnimatedImage {
 
           anchors.fill: parent
-          source: "../scenes/assets/LettersInGIF/ش.gif"
+          source: "../scenes/assets/LettersInGIF/ي.gif"
       }
       SoundEffect{
-      id: sheen
-      source: "../scenes/assets/LetterSound/13.wav"
+      id: yaa
+      source: "../scenes/assets/LetterSound/28.wav"
+
       }
-      MouseArea{
-      id: letter9
-      anchors.fill: parent
-      onClicked: {
-      sheen.play()
-      }
-      }
+
     }
-    MenuButton {
+    WrongAnswer {
         x:50
         y:150
       width: 50
       height: 50
       color: "transparent"
+      onClicked: {
+      kaf.play()
+      }
 
       AnimatedImage {
 
@@ -135,20 +139,16 @@ Scene {
       id: kaf
       source: "../scenes/assets/LetterSound/22.wav"
       }
-      MouseArea{
-      id: letter28
-      anchors.fill: parent
-      onClicked: {
-      kaf.play()
-      }
-      }
     }
-    MenuButton {
+    WrongAnswer {
         x:350
         y:70
       width: 50
       height: 50
       color: "transparent"
+      onClicked: {
+      seen.play()
+      }
 
       AnimatedImage {
 
@@ -159,39 +159,31 @@ Scene {
       id:seen
       source: "../scenes/assets/LetterSound/12.wav"
       }
-      MouseArea{
-      id: letter10
-      anchors.fill: parent
-      onClicked: {
-      seen.play()
-      }
-      }
+
     }
-    MenuButton {
+    RightAnswer {
+        id: ans3
         x:400
         y:70
       width: 50
       height: 50
       color: "transparent"
+      onClicked: {
+      lam.play()
+          ans3A.start()
+      }
 
       AnimatedImage {
 
           anchors.fill: parent
-          source: "../scenes/assets/LettersInGIF/ن.gif"
+          source: "../scenes/assets/LettersInGIF/ل.gif"
       }
       SoundEffect{
-      id: non
-      source: "../scenes/assets/LetterSound/25.wav"
+      id: lam
+      source: "../scenes/assets/LetterSound/23.wav"
       }
-      MouseArea{
-      id: letter25
-      anchors.fill: parent
-      onClicked: {
-      non.play()
-      }
-      }
-    }
 
+    }
 ////////////////////////////
 
     MenuButton{
@@ -219,7 +211,7 @@ Scene {
 
     // back button to leave scene
     MenuButton {
-      text: "Back"
+      text: "رجوع"
       anchors.right: test6.gameWindowAnchorItem.right
       anchors.rightMargin: 25
       anchors.top: test6.gameWindowAnchorItem.top
@@ -228,5 +220,52 @@ Scene {
           test6.visible=false
           gameWindow.state= "playGames"}
     }
+    //////////////////////////////////////////Animation
+
+        ParallelAnimation {
+            id:ans1A
+                  NumberAnimation {
+                    target: ans1
+                    property: "y"
+                    to: 250
+                    duration: 1000
+                  }
+                  NumberAnimation {
+                    target: ans1
+                    property: "x"
+                    to: 270
+                    duration: 1000
+                  }
+                }
+        ParallelAnimation {
+            id:ans2A
+                  NumberAnimation {
+                    target: ans2
+                    property: "y"
+                    to: 250
+                    duration: 1000
+                  }
+                  NumberAnimation {
+                    target: ans2
+                    property: "x"
+                    to: 220
+                    duration: 1000
+                  }
+                }
+        ParallelAnimation {
+            id:ans3A
+                  NumberAnimation {
+                    target: ans3
+                    property: "y"
+                    to: 250
+                    duration: 1000
+                  }
+                  NumberAnimation {
+                    target: ans3
+                    property: "x"
+                    to: 170
+                    duration: 1000
+                  }
+                }
 
 }

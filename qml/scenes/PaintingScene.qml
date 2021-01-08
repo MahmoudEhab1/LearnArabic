@@ -5,7 +5,7 @@ import QtQuick 2.13
 import "../common"
 
 SceneBase {
-    id:paintingScene
+    id: paintingScene
     anchors.fill: parent.gameWindowAnchorItem
 
     Image {
@@ -29,6 +29,12 @@ SceneBase {
         }
     }
 
+    Text {
+        id: title
+        text: qsTr("يمكنك فقط نقل الرسومات في كشكولك الخاص حتى تحديث اخر")
+        anchors.centerIn: parent
+    }
+
 
 /////////////////////////Painting
 
@@ -38,12 +44,16 @@ SceneBase {
 
             Rectangle {
               parent: glassPane
-              color: "red"
+              color: "transparent"
               x: handler.point.position.x - width / 2
               y: handler.point.position.y - height / 2
-              width: dp(10)
+              width: dp(22)
               height: width
               radius: width / 2
+              Image{
+              anchors.fill:parent
+              source: "../scenes/assets/brush.png"
+              }
             }
 
             HoverHandler {
@@ -77,7 +87,7 @@ SceneBase {
 
     // back button to leave scene
         MenuButton {
-          text: "Back"
+          text: "رجوع"
           anchors.right: paintingScene.gameWindowAnchorItem.right
           anchors.rightMargin: 25
           anchors.top: paintingScene.gameWindowAnchorItem.top

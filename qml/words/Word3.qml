@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Felgo 3.0
 import "../common"
+import QtMultimedia 5.12
 
 
 Scene {
@@ -55,13 +56,13 @@ Scene {
               source: "../scenes/assets/canary.png"
           }
           SoundEffect{
-          id: sheen
+          id: canaryS
           source: "../scenes/assets/wordSound/Canary.wav"
           }
           MouseArea{
           anchors.fill: parent
           onClicked: {
-          sheen.play()
+          canaryS.play()
           }
           }
         }
@@ -75,7 +76,7 @@ Scene {
         x:0
         y:270
         onClicked: {
-        var component =Qt.createComponent("../words/Word1.qml");
+        var component =Qt.createComponent("../words/Word4.qml");
             var window = component.createObject(gameWindow);
             word3.visible=false
             window.show
@@ -89,13 +90,14 @@ Scene {
 
     }
     MenuButton {
-      text: "Back"
+      text: "رجوع"
       anchors.right: word3.gameWindowAnchorItem.right
       anchors.rightMargin: 25
       anchors.top: word3.gameWindowAnchorItem.top
       anchors.topMargin: 15
       onClicked: {
-          backButtonPressed()
+      word3.visible=false
+          gameWindow.state = "mainMenu"
       }
     }
 }

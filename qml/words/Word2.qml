@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Felgo 3.0
 import "../common"
+import "../words"
 
 
 Scene {
@@ -55,13 +56,13 @@ Scene {
               source: "../scenes/assets/donkey.png"
           }
           SoundEffect{
-          id: sheen
+          id: donkeyS
           source: "../scenes/assets/wordSound/Donky.wav"
           }
           MouseArea{
           anchors.fill: parent
           onClicked: {
-          sheen.play()
+          donkeyS.play()
           }
           }
         }
@@ -89,13 +90,14 @@ Scene {
 
     }
     MenuButton {
-      text: "Back"
+      text: "رجوع"
       anchors.right: word2.gameWindowAnchorItem.right
       anchors.rightMargin: 25
       anchors.top: word2.gameWindowAnchorItem.top
       anchors.topMargin: 15
       onClicked: {
-          backButtonPressed()
+      word2.visible=false
+          gameWindow.state = "mainMenu"
       }
     }
 

@@ -11,6 +11,12 @@ GameWindow {
     screenWidth: 960
     screenHeight: 640
 
+    BackgroundMusic {
+       id: backgroundMusic
+       source: "../assets/backgroundMusic.mp3"
+       // autoPlay: true - this is set by default
+     }
+
     MainMenuScene{
         id: mainMenuScene
 
@@ -43,12 +49,12 @@ GameWindow {
     }
     LetterSongsScene{
         id:letterSongsScene
-        onBackButtonPressed: gameWindow.state = "mainMenu"
+//        onBackButtonPressed: gameWindow.state = "mainMenu"
     }
 
     LearnWordsScene{
         id: learnWordsScene
-        onBackButtonPressed: gameWindow.state = "mainMenu"
+//        onBackButtonPressed: gameWindow.state = "mainMenu"
     }
 
     PlayGames{
@@ -74,7 +80,7 @@ GameWindow {
     // default state is mainmenu -> default scene is MainmenuScene
        state: "mainMenu"
 
-       // state machine, takes care reversing the PropertyChanges when changing the state like changing the opacity back to 0
+       // state machine, takes care reversing the PropertyChanges
        states: [
          State {
            name: "mainMenu"

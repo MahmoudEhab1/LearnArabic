@@ -80,6 +80,7 @@ DISTFILES += \
     qml/scenes/PlayGames.qml \
     qml/words/Word1.qml \
     qml/words/Word2.qml \
-    qml/words/Word3.qml
+    qml/words/Word3.qml \
+    qml/words/Word4.qml
 
 HEADERS +=

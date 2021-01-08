@@ -2,10 +2,10 @@ import QtQuick 2.0
 import Felgo 3.0
 import "../common"
 import QtMultimedia 5.12
-import "../words"
+
 
 Scene {
-    id:word1
+    id:word4
 
     Image {
         id: background
@@ -35,11 +35,11 @@ Scene {
         font.pixelSize: 20
     }
     ////////////////////////////////////
-        Text {
+    Text {
             id: name
             x: 300
             y: 130
-            text: qsTr("غوريلا")
+            text: qsTr("ديناصور")
             font.pixelSize: 40
         }
     ////////////////////////////////////
@@ -53,16 +53,16 @@ Scene {
           Image {
 
               anchors.fill: parent
-              source: "../scenes/assets/gorilla.png"
+              source: "../scenes/assets/dinasour.png"
           }
           SoundEffect{
-          id: gorillaS
-          source: "../scenes/assets/wordSound/Gorilla.wav"
+          id: dinosaurS
+          source: "../scenes/assets/wordSound/dinosaur.wav"
           }
           MouseArea{
           anchors.fill: parent
           onClicked: {
-          gorillaS.play()
+          dinosaurS.play()
           }
           }
         }
@@ -76,7 +76,7 @@ Scene {
         x:0
         y:270
         onClicked: {
-        var component =Qt.createComponent("../words/Word2.qml");
+        var component =Qt.createComponent("../words/Word1.qml");
             var window = component.createObject(gameWindow);
             word1.visible=false
             window.show
@@ -91,13 +91,14 @@ Scene {
     }
     MenuButton {
       text: "رجوع"
-      anchors.right: word1.gameWindowAnchorItem.right
+      anchors.right: word4.gameWindowAnchorItem.right
       anchors.rightMargin: 25
-      anchors.top: word1.gameWindowAnchorItem.top
+      anchors.top: word4.gameWindowAnchorItem.top
       anchors.topMargin: 15
       onClicked: {
-          word1.visible=false
-          gameWindow.state = "mainMenu"
+          word4.visible=false
+              learnWordsScene.visible=true
       }
     }
 }
+

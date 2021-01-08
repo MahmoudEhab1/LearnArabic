@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Felgo 3.0
 import "../common"
+import QtMultimedia 5.12
 
 Scene {
     id:test2
@@ -139,7 +140,7 @@ Scene {
     }
     // back button to leave scene
     MenuButton {
-      text: "Back"
+      text: "رجوع"
       anchors.right: test2.gameWindowAnchorItem.right
       anchors.rightMargin: 25
       anchors.top: test2.gameWindowAnchorItem.top

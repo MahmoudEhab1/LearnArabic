@@ -7,26 +7,26 @@ Scene {
     id:alif
     Rectangle {
         anchors.fill: parent.gameWindowAnchorItem
-    Image {
-        id: background
-        transformOrigin: Item.Center
-        anchors.fill: parent
-        source: "../scenes/assets/background6.jpg"
-        fillMode: Image.PreserveAspectCrop
+        Image {
+            id: background
+            transformOrigin: Item.Center
+            anchors.fill: parent
+            source: "../scenes/assets/background6.jpg"
+            fillMode: Image.PreserveAspectCrop
 
-        Rectangle{      //transparent white30%
-        anchors.fill: parent
-        color: "#4DFFFFFF"
+            Rectangle{      //transparent white30%
+                anchors.fill: parent
+                color: "#4DFFFFFF"
 
-        Rectangle{
-        id: insideBackground
-        anchors.centerIn: parent
-        color: "#9DFFFFFF"
-        width: 530
-        height: 300
+                Rectangle{
+                    id: insideBackground
+                    anchors.centerIn: parent
+                    color: "#9DFFFFFF"
+                    width: 530
+                    height: 300
+                }
+            }
         }
-        }
-    }
     }
     Image {
         anchors.centerIn: parent
@@ -42,7 +42,7 @@ Scene {
         x:0
         y:270
         onClicked: {
-        var component =Qt.createComponent("../letters/2.qml");
+            var component =Qt.createComponent("../letters/2.qml");
             var window = component.createObject(gameWindow);
             alif.visible=false
             window.show
@@ -55,17 +55,15 @@ Scene {
         }
 
     }
-//    MenuButton {
-//      text: "Back"
-//      anchors.right: paintingScene.gameWindowAnchorItem.right
-//      anchors.rightMargin: 25
-//      anchors.top: paintingScene.gameWindowAnchorItem.top
-//      anchors.topMargin: 15
-//      onClicked: {
-//          var component =Qt.
-//              var window = component.createObject(gameWindow);
-//              alif.visible=false
-//              window.show
-//      }
-//    }
+    MenuButton {
+        text: "رجوع"
+        anchors.right: alif.gameWindowAnchorItem.right
+        anchors.rightMargin: 25
+        anchors.top: alif.gameWindowAnchorItem.top
+        anchors.topMargin: 15
+        onClicked: {
+            alif.visible=false
+            gameWindow.state = "mainMenu"
+        }
+    }
 }

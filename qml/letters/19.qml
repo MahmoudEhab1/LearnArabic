@@ -7,26 +7,26 @@ Scene {
     id:gain
     Rectangle {
         anchors.fill: parent.gameWindowAnchorItem
-    Image {
-        id: background
-        transformOrigin: Item.Center
-        anchors.fill: parent
-        source: "../scenes/assets/background6.jpg"
-        fillMode: Image.PreserveAspectCrop
+        Image {
+            id: background
+            transformOrigin: Item.Center
+            anchors.fill: parent
+            source: "../scenes/assets/background6.jpg"
+            fillMode: Image.PreserveAspectCrop
 
-        Rectangle{      //transparent white30%
-        anchors.fill: parent
-        color: "#4DFFFFFF"
+            Rectangle{      //transparent white30%
+                anchors.fill: parent
+                color: "#4DFFFFFF"
 
-        Rectangle{
-        id: insideBackground
-        anchors.centerIn: parent
-        color: "#9DFFFFFF"
-        width: 530
-        height: 300
+                Rectangle{
+                    id: insideBackground
+                    anchors.centerIn: parent
+                    color: "#9DFFFFFF"
+                    width: 530
+                    height: 300
+                }
+            }
         }
-        }
-    }
     }
     Image {
         anchors.centerIn: parent
@@ -42,7 +42,7 @@ Scene {
         x:0
         y:270
         onClicked: {
-        var component =Qt.createComponent("../letters/20.qml");
+            var component =Qt.createComponent("../letters/20.qml");
             var window = component.createObject(gameWindow);
             gain.visible=false
             window.show
@@ -54,5 +54,16 @@ Scene {
 
         }
 
+    }
+    MenuButton {
+        text: "رجوع"
+        anchors.right: gain.gameWindowAnchorItem.right
+        anchors.rightMargin: 25
+        anchors.top: gain.gameWindowAnchorItem.top
+        anchors.topMargin: 15
+        onClicked: {
+            gain.visible=false
+            gameWindow.state = "mainMenu"
+        }
     }
 }
