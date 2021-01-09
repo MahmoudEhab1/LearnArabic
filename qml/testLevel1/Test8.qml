@@ -148,7 +148,7 @@ Scene {
       height: 50
       color: "transparent"
       onClicked: {
-      dad2.play()
+      dal.play()
           ans4.enabled=true
           ans3A.start()
       }
@@ -156,11 +156,11 @@ Scene {
       AnimatedImage {
 
           anchors.fill: parent
-          source: "../scenes/assets/LettersInGIF/ض.gif"
+          source: "../scenes/assets/LettersInGIF/د.gif"
       }
       SoundEffect{
-      id:dad2
-      source: "../scenes/assets/LetterSound/15.wav"
+      id:dal
+      source: "../scenes/assets/LetterSound/8.wav"
       }
 
     }
