@@ -80,18 +80,18 @@ Scene {
       color: "transparent"
 
       onClicked: {
-      dal.play()
+      sheen.play()
 
       }
 
       AnimatedImage {
 
           anchors.fill: parent
-          source: "../scenes/assets/LettersInGIF/د.gif"
+          source: "../scenes/assets/LettersInGIF/ش.gif"
       }
       SoundEffect{
-      id: dal
-      source: "../scenes/assets/LetterSound/8.wav"
+      id: sheen
+      source: "../scenes/assets/LetterSound/13.wav"
       }
 
     }
