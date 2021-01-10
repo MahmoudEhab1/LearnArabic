@@ -2,6 +2,7 @@ import QtQuick 2.0
 import Felgo 3.0
 import "../common"
 import "../words"
+import QtMultimedia 5.12
 
 
 Scene {
